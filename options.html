@@ -162,7 +162,7 @@ columns: [
 
                     <div class="option-description">
                         <h3><code>data-sort</code></h3>
-                        <div class="options">Type: <code>asc"</code> or <code>"desc"</code>
+                        <div class="options"><code>"asc"</code> or <code>"desc"</code>
                         </div>
                         <p>sort the table initially by this column in the defined direction</p>
 
@@ -170,6 +170,13 @@ columns: [
                             <li>a custom column definitions attribute is overwritten by a "data-sort" attribute</li>
                             <li>since sorting is only supported for one column at the same time the last defined column is used</li>
                         </ul>
+                    </div>
+
+                    <div class="option-description">
+                        <h3><code>data-col-name</code></h3>
+                        <div class="options">Type: <code>String</code>
+                        </div>
+                        <p>a name for the column which is sent to the server for server side rendering</p>
                     </div>
 
                     <h3>Example</h3>
@@ -181,10 +188,10 @@ columns: [
 &lt;table id="example2"&gt;
     &lt;thead&gt;
         &lt;tr&gt;
-            &lt;th data-sortable="false"&gt;Name&lt;/th&gt;
-            &lt;th data-sort="asc"&gt;Country&lt;/th&gt;
-            &lt;th&gt;Date&lt;/th&gt;
-            &lt;th&gt;Number&lt;/th&gt;
+            &lt;th data-sortable="false" data-col-name="name"&gt;Name&lt;/th&gt;
+            &lt;th data-sort="asc" data-col-name="country"&gt;Country&lt;/th&gt;
+            &lt;th data-col-name="date"&gt;Date&lt;/th&gt;
+            &lt;th data-col-name="number"&gt;Number&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -215,10 +222,10 @@ new JSTable("#example2", {
                     <table id="example2">
                         <thead>
                             <tr>
-                                <th data-sortable="false">Name</th>
-                                <th data-sort="asc">Country</th>
-                                <th>Date</th>
-                                <th>Number</th>
+                                <th data-sortable="false" data-col-name="name">Name</th>
+                                <th data-sort="asc" data-col-name="country">Country</th>
+                                <th>Date data-col-name="date"</th>
+                                <th>Number data-col-name="number"</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -917,6 +924,10 @@ layout: {
                                     <td>the index of the to sorted column</td>
                                 </tr>
                                 <tr>
+                                    <td><code>sortColumnName</code></td>
+                                    <td>the name of the to sorted column (data-col-name)</td>
+                                </tr>
+                                <tr>
                                     <td><code>sortDirection</code></td>
                                     <td>the sorting direction (<code>asc</code> or <code>desc</code>)</td>
                                 </tr>
@@ -1096,6 +1107,7 @@ queryParams: {
     page: 'page',
     search: 'search',
     sortColumn: 'sortColumn',
+    sortColumnName: 'sortColumnName',
     sortDirection: 'sortDirection',
     perPage: 'perPage'
 }

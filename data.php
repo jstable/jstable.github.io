@@ -14,6 +14,7 @@ $search = empty($searchQuery) || $searchQuery === "null" ? "" : $searchQuery;
 
 
 $sortColumnIndex = filter_input(INPUT_GET, "sortColumn", FILTER_SANITIZE_NUMBER_INT);
+$sortColumnName = filter_input(INPUT_GET, "sortColumnName", FILTER_SANITIZE_STRING);
 $sortDirection = filter_input(INPUT_GET, "sortDirection", FILTER_SANITIZE_STRING);
 
 
